@@ -1,0 +1,33 @@
+name: curso
+on:
+  workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run a one-line script
+      run: echo Hello, world!
+
+
+  teste-1:
+    runs-on: ubuntu-latest
+    environment:
+      name: teste-1
+      url: 'github.com'
+    needs: build
+    steps:
+    - name: Run a one-line script
+      run: echo teste-1
+
+  teste-2:
+    runs-on: ubuntu-latest
+    environment:
+      name: teste-2
+      url: 'github.com'
+    needs: teste-1
+    steps:
+    - name: Run a one-line script
+      run: echo teste-1     
+
+  
